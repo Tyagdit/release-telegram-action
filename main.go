@@ -60,7 +60,6 @@ func main() {
     replaceString("!", "\\!")  // Bangs
     replaceString("`", "\\`")  // Tildes
 
-    log.Println("---"+changelog+"---")
     msg := telegram.NewMessage(int64(channel_id), changelog)
     msg.DisableWebPagePreview = true
     msg.ParseMode = "MarkdownV2"
