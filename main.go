@@ -42,7 +42,7 @@ func main() {
 
     // Construct message, order of replacements is important
     replaceString := func(regex, repl string) {
-        changelog = regexp.MustCompile("(?m}" + regex).ReplaceAllString(changelog, repl)
+        changelog = regexp.MustCompile("(?m)" + regex).ReplaceAllString(changelog, repl)
     }
 
     replaceString(
