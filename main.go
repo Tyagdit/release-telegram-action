@@ -49,7 +49,7 @@ func main() {
         " by @\\w+ in https:\\/\\/github\\.com\\/[\\w\\-]+\\/[\\w\\-]+\\/pull\\/\\d+",
         "",
     )  // Strip contributions
-    replaceString("^\\s*<!--.*-->\\s*[\n\r\v\f]", "")  // Full line Comments
+    replaceString("^\\s*<!--.*-->\\s*?[\n\r\v\f]", "")  // Full line Comments
     replaceString("<!--.*-->", "")  // Inline Comments
     replaceString("^#+ (.+)$", "*$1*$2")  // Headings
     replaceString("^(\\s*)[\\*\\-] ", "$1• ")  // Lists
