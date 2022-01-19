@@ -1,0 +1,22 @@
+name: Test action
+on: workflow_dispatch
+
+jobs:
+  test-post:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Send changelog to telegram channel
+        uses: ./
+        with:
+          token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          channel: ${{ secrets.CHANGELOG_CHANNEL_ID }}
+          changelog: |
+            # Heading 1
+            ## Heading 2
+            <!-- comment 1 -->
+
+            <!--comment 2-->
+            - *bold.1* **bold-2**
+                * _italic`1_ ___italic!2___
+

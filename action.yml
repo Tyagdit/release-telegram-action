@@ -1,0 +1,21 @@
+name: 'Release Telegram Action'
+description: 'Clean up and send github auto generated release notes to a telegram channel'
+
+inputs:
+  token:
+    description: 'Bot token obtained from @BotFather'
+    required: true
+  channel:
+    description: 'Channel ID (number)'
+    required: true
+  changelog:
+    description: 'The generated changelog to send'
+    required: true
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+
+branding:
+  icon: send
+  color: blue
