@@ -15,8 +15,9 @@ jobs:
             # Heading 1
             ## Heading 2
             <!-- comment 1 -->
+              <!-- comment 2 -->
 
-            <!--comment 2-->
+            text <!--comment 3-->  
             - *bold.1* **bold-2**
                 * _italic`1_ ___italic!2___
 

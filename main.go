@@ -42,16 +42,17 @@ func main() {
 
     // Construct message, order of replacements is important
     replaceString := func(regex, repl string) {
-        changelog = regexp.MustCompile(regex).ReplaceAllString(changelog, repl)
+        changelog = regexp.MustCompile("(?m}" + regex).ReplaceAllString(changelog, repl)
     }
 
     replaceString(
         " by @\\w+ in https:\\/\\/github\\.com\\/[\\w\\-]+\\/[\\w\\-]+\\/pull\\/\\d+",
         "",
     )  // Strip contributions
-    replaceString("<!--.*-->", "")  // Comments
-    replaceString("(?:^|\\R)#+ (.+)(\\R|$)", "*$1*$2")  // Headings
-    replaceString("((?:^|\\R)\\s*)[\\*\\-] ", "$1• ")  // Lists
+    replaceString("^\\s*<!--.*-->\\s*[\n\r\v\f]", "")  // Full line Comments
+    replaceString("<!--.*-->", "")  // Inline Comments
+    replaceString("^#+ (.+)$", "*$1*$2")  // Headings
+    replaceString("^(\\s*)[\\*\\-] ", "$1• ")  // Lists
     replaceString("\\*+", "*")  // Bolds
     replaceString("_+", "_")  // Italics
     replaceString("\\.", "\\.")  // Dots, yes the 2 strings look the same
