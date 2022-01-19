@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Send changelog to telegram channel
-        uses: tyagdit/release-telegram-action@latest
+        uses: tyagdit/release-telegram-action@master
         with:
           token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           channel: ${{ secrets.CHANGELOG_CHANNEL_ID }}
