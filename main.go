@@ -50,8 +50,8 @@ func main() {
         "",
     )  // Strip contributions
     replaceString("<!--.*-->", "")  // Comments
-    replaceString("(?:^|\n)#+ (.+)(\n|$)", "*$1*$2")  // Headings
-    replaceString("((?:^|\n)\\s*)[\\*\\-] ", "$1• ")  // Lists
+    replaceString("(?:^|\\R)#+ (.+)(\\R|$)", "*$1*$2")  // Headings
+    replaceString("((?:^|\\R)\\s*)[\\*\\-] ", "$1• ")  // Lists
     replaceString("\\*+", "*")  // Bolds
     replaceString("_+", "_")  // Italics
     replaceString("\\.", "\\.")  // Dots, yes the 2 strings look the same
